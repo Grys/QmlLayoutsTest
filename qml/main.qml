@@ -2,51 +2,44 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
+
 ApplicationWindow {
     id: app
+    property variant parameters
     visible: true
     width: 640
     height: 480
     title: qsTr("Qml Layouts Test")
 
-    SlideMenu {
-        model: ListModel {
-            id: modelMenu
-            ListElement {
-                item: "page_example"
-                icon: ""
-                page: "PageExample.qml"
-            }
-            ListElement {
-                item: "settings"
-                icon: "qrc:/img/icon_settings.png"
-                page: "PageSettings.qml"
-            }
-            ListElement {
-                item: "about"
-                icon: ""
-                page: "PageAbout.qml"
-            }
+    StackView {
+        id:stackView
+        anchors.fill: parent
+        initialItem: Page {
+            Test {color: "green"}
         }
     }
 
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: 0
+    SlideMenu {
+        model:     ListModel {
+            ListElement {
+                item: "First page"
+                page: "qrc:/qml/FirstPage.qml"
+            }
+            ListElement {
+                item: "Second page"
+                page: "qrc:/qml/SecondPage.qml"
+            }
+            ListElement {
+                item: "Gps sample"
+                page: "qrc:/qml/GPS_Sample.qml"
+            }
+        }
 
-        FirstPage {}
-        SecondPage {}
+        onMenuItemClicked: {
+            stackView.push(page)
+        }
 
     }
 
-    PageIndicator {
-          id: indicator
 
-          count: swipeView.count
-          currentIndex: swipeView.currentIndex
-
-          anchors.bottom: swipeView.bottom
-          anchors.horizontalCenter: parent.horizontalCenter
-      }
 }

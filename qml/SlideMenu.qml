@@ -94,7 +94,7 @@ Item {
                     height: parent.height * 0.5
                     width: height
                     source: icon ? icon : ""
-                    visible: icon != ""
+                    visible: icon ? true: false
                     smooth: true
                     antialiasing: true
                 }

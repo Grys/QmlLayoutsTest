@@ -8,5 +8,10 @@
         <file>qtquickcontrols2.conf</file>
         <file>qml/SlideMenu.qml</file>
         <file>img/icon_settings.png</file>
+        <file>qml/HorizontalLine.qml</file>
+        <file>qml/FilterModel.qml</file>
+        <file>qml/FilterListView.qml</file>
+        <file>qml/MainPage.qml</file>
+        <file>qml/GPS_Sample.qml</file>
     </qresource>
 </RCC>

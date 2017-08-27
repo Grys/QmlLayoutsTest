@@ -4,12 +4,12 @@ import QtQuick.Layouts 1.3
 
 Page {
     id: firstPage
+
     RowLayout {
         anchors.fill: parent
 
         ColumnLayout {
             Layout.fillHeight: true
-            Layout.fillWidth: true
             Layout.preferredWidth: parent.width * 0.65
 
             RowLayout {

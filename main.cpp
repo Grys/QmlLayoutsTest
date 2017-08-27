@@ -11,5 +11,15 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
+    QObject *item = engine.rootObjects().first();
+    Q_ASSERT(item);
+
+    QVariantMap parameters;
+    parameters[QStringLiteral("osm.useragent")] = QStringLiteral("QtLocation Mapviewer example");
+
+    QMetaObject::invokeMethod(item, "initializeProviders",
+                              Q_ARG(QVariant, QVariant::fromValue(parameters)));
+
+
     return app.exec();
 }
